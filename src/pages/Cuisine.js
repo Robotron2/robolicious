@@ -18,7 +18,41 @@ const Cuisine = () => {
 		console.log(params.type)
 	}, [params.type])
 
-	return <div></div>
+	return (
+		<div className="grid-class">
+			{cuisine.map((item) => {
+				return (
+					<Card key={item.id}>
+						<img src={item.image} alt={item.title} />
+						<h4>{item.title}</h4>
+					</Card>
+				)
+			})}
+		</div>
+	)
 }
+
+// const Grid = styled.div`
+// 	display: grid;
+
+// 	grid-template-columns: repeat(5rem, 3fr);
+// 	grid-gap: 3rem;
+// `
+
+const Card = styled.div`
+	justify-content: center;
+	align-item: center;
+	img {
+		width: 100%;
+		border-radius: 2rem;
+	}
+	a {
+		text-decoration: none;
+	}
+	h4 {
+		text-align: center;
+		padding: 1rem;
+	}
+`
 
 export default Cuisine
