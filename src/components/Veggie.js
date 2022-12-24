@@ -7,7 +7,7 @@ const Veggie = () => {
 	const [veggie, setVeggie] = useState([])
 
 	const getVeggie = async () => {
-		const check = localStorage.getItem("veggie")
+		const check = localStorage.getItem("veggies")
 
 		if (check) {
 			setVeggie(JSON.parse(check))
