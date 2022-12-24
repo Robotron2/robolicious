@@ -31,6 +31,9 @@ const Recipe = () => {
 				<SButton className={activeTab === "ingredients" ? "active" : ""} onClick={() => setActiveTab("ingredients")}>
 					Ingredients
 				</SButton>
+				<div>
+					<h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
+				</div>
 			</Info>
 		</DetailWrapper>
 	)
