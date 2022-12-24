@@ -31,9 +31,21 @@ const Recipe = () => {
 				<SButton className={activeTab === "ingredients" ? "active" : ""} onClick={() => setActiveTab("ingredients")}>
 					Ingredients
 				</SButton>
-				<div>
-					<h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
-				</div>
+
+				{activeTab === "instructions" && (
+					<div>
+						<h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
+						<h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
+					</div>
+				)}
+
+				{activeTab === "ingredients" && (
+					<ul>
+						{details.extendedIngredients.map((ingredient) => {
+							return <li key={ingredient.id}>{ingredient.original}</li>
+						})}
+					</ul>
+				)}
 			</Info>
 		</DetailWrapper>
 	)
