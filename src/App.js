@@ -1,12 +1,16 @@
-import "./App.css"
+// import "./App.css"
+import "./index.css"
+import Category from "./components/Category"
 import Pages from "./pages/Pages"
+import { BrowserRouter } from "react-router-dom"
 
 function App() {
 	return (
 		<div className="App">
-			<div>
+			<BrowserRouter>
+				<Category />
 				<Pages />
-			</div>
+			</BrowserRouter>
 		</div>
 	)
 }
