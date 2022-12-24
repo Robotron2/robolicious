@@ -9,6 +9,7 @@ const Search = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		navigate(`searched/${input}`)
 	}
 
 	return (
