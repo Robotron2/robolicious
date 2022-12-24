@@ -32,13 +32,6 @@ const Cuisine = () => {
 	)
 }
 
-// const Grid = styled.div`
-// 	display: grid;
-
-// 	grid-template-columns: repeat(5rem, 3fr);
-// 	grid-gap: 3rem;
-// `
-
 const Card = styled.div`
 	justify-content: center;
 	align-item: center;
