@@ -7,10 +7,17 @@ const Popular = () => {
 	const [popular, setPopular] = useState([])
 
 	const getpopular = async () => {
-		const url = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`)
-		const urlData = await url.json()
-		console.log(urlData)
-		setPopular(urlData.recipes)
+		const check = localStorage.getItem("popular")
+
+		if (check) {
+			setPopular(JSON.parse(check))
+		} else {
+			const url = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`)
+			const urlData = await url.json()
+			localStorage.setItem("popular", JSON.stringify(urlData.recipes))
+			setPopular(urlData.recipes)
+			console.log(urlData)
+		}
 	}
 
 	useEffect(() => {
