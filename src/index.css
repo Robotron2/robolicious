@@ -1,10 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&family=Montserrat:wght@500&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap");
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Montserrat", sans-serif;
+}
+
+:root {
+	--font-default: "Montserrat", sans-serif;
+	--font-brand: "Pacifico", cursive;
 }
 
 :root {
@@ -15,6 +19,8 @@
 
 body {
 	color: var(--color-default);
+	font-family: var(--font-default);
+	background-color: #fae7e7;
 }
 
 h4 {
@@ -37,4 +43,36 @@ a {
 a:hover {
 	color: #ec2727;
 	text-decoration: none;
+}
+
+.navbar {
+	padding: 2%;
+}
+.navbar a {
+	color: var(--color-default);
+}
+
+.navbar-brand h1 {
+	font-family: var(--font-brand) !important;
+	font-size: 2.2rem;
+}
+
+.contact-btn {
+	background-color: #ec2727;
+	color: white;
+	font-size: 14px;
+	padding: 8px 20px;
+	transition: 0.3s;
+}
+.contact-btn:hover {
+	background-color: #d85959;
+	color: white;
+}
+
+h1 span {
+	color: #ec2727;
+}
+
+header .container {
+	padding: 0;
 }
