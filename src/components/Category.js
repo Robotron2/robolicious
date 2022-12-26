@@ -1,28 +1,58 @@
 import { FaPizzaSlice, FaHamburger } from "react-icons/fa"
 import { GiNoodles, GiChopsticks } from "react-icons/gi"
 import styled from "styled-components"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 const Category = () => {
+	// return (
+	// 	<List>
+	// 		<SLink to={"/cuisine/Italian"}>
+	// 			<FaPizzaSlice />
+	// 			<h4>Italian</h4>
+	// 		</SLink>
+	// 		<SLink to={"/cuisine/American"}>
+	// 			<FaHamburger />
+	// 			<h4>American</h4>
+	// 		</SLink>
+	// 		<SLink to={"/cuisine/Thai"}>
+	// 			<GiNoodles />
+	// 			<h4>Thai Foods</h4>
+	// 		</SLink>
+	// 		<SLink to={"/cuisine/Japanese"}>
+	// 			<GiChopsticks />
+	// 			<h4>Japanese</h4>
+	// 		</SLink>
+	// 	</List>
+	// )
 	return (
-		<List>
-			<SLink to={"/cuisine/Italian"}>
-				<FaPizzaSlice />
-				<h4>Italian</h4>
-			</SLink>
-			<SLink to={"/cuisine/American"}>
-				<FaHamburger />
-				<h4>American</h4>
-			</SLink>
-			<SLink to={"/cuisine/Thai"}>
-				<GiNoodles />
-				<h4>Thai Foods</h4>
-			</SLink>
-			<SLink to={"/cuisine/Japanese"}>
-				<GiChopsticks />
-				<h4>Japanese</h4>
-			</SLink>
-		</List>
+		<div className="container mt-2 ">
+			<div className="row cuisine">
+				<div className="feature-box  text-center ">
+					<FaPizzaSlice className="four" />
+					<Link to={"/cuisine/Thai"}>
+						<h4>Thai Foods</h4>
+					</Link>
+				</div>
+				<div className="feature-box  text-center ">
+					<FaHamburger className="four" />
+					<Link to={"/cuisine/Thai"}>
+						<h4>American</h4>
+					</Link>
+				</div>
+				<div className="feature-box  text-center ">
+					<GiNoodles className="four" />
+					<Link to={"/cuisine/Thai"}>
+						<h4>Chinese</h4>
+					</Link>
+				</div>
+				<div className="feature-box  text-center ">
+					<GiChopsticks className="four" />
+					<Link to={"/cuisine/Thai"}>
+						<h4>Japanese</h4>
+					</Link>
+				</div>
+			</div>
+		</div>
 	)
 }
 
