@@ -7,8 +7,14 @@
 	font-family: "Montserrat", sans-serif;
 }
 
+:root {
+	--color-default: #212529;
+	--color-primary: #ce1212;
+	--color-secondary: #37373f;
+}
+
 body {
-	padding: 5% 10%;
+	color: var(--color-default);
 }
 
 h4 {
@@ -24,13 +30,11 @@ h3 {
 }
 
 a {
-	color: rgb(56, 56, 56);
+	color: var(--color-primary);
+	text-decoration: none;
 }
 
-.grid-class {
-	display: grid;
-	grid-template-columns: repeat(4, 2fr);
-	grid-gap: 2rem;
-
-	margin-left: 10rem;
+a:hover {
+	color: #ec2727;
+	text-decoration: none;
 }
