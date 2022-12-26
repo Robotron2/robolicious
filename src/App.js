@@ -11,7 +11,7 @@ function App() {
 		<div className="App">
 			<BrowserRouter>
 				<Header />
-				{/* <Search /> */}
+				<Search />
 				<Category />
 				<Pages />
 			</BrowserRouter>
