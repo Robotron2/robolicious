@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
-import styled from "styled-components"
-import { Splide, SplideSlide } from "@splidejs/react-splide"
-import "@splidejs/react-splide/css"
-import { Link } from "react-router-dom"
+import { Swiper, SwiperSlide } from "swiper/react"
+
+import { FreeMode } from "swiper"
+
+import "swiper/css"
+import "swiper/css/free-mode"
+import CardComponent from "./Card"
 
 const Popular = () => {
 	const [popular, setPopular] = useState([])
@@ -26,18 +29,17 @@ const Popular = () => {
 	}, [])
 
 	return (
-		<div className="container mt-2 ">
-			<h3>Popular Picks</h3>
-			<div className="row popular">
-				{popular.map((recipe) => {
-					return (
-						<div className="popular-box text-center" key={recipe.id}>
-							<img src={recipe.image} alt="" />
-							<h6>{recipe.title}</h6>
-						</div>
-					)
-				})}
-			</div>
+		<div className="container py-4 px-4 justify-content-center bg-dark">
+			<Swiper freeMode={true} grabCursor={true} modules={[FreeMode]} className="mySwiper" slidesPerView={5} spaceBetween={30}>
+				<SwiperSlide>
+					<CardComponent
+						data={{
+							imgSrc: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.britannica.com%2F36%2F123536-050-95CB0C6E%2FVariety-fruits-vegetables.jpg&imgrefurl=https%3A%2F%2Fwww.britannica.com%2Ftopic%2Ffood&tbnid=rMZ8I5b2kc3W3M&vet=12ahUKEwi_wYPq_pf8AhVCuUwKHT2QDKYQMygBegUIARDfAQ..i&docid=DJp6ra_owrcaaM&w=1600&h=1068&q=food&ved=2ahUKEwi_wYPq_pf8AhVCuUwKHT2QDKYQMygBegUIARDfAQ",
+							title: "Theo"
+						}}
+					/>
+				</SwiperSlide>
+			</Swiper>
 		</div>
 	)
 }
