@@ -1,7 +1,7 @@
-import { FaPizzaSlice, FaHamburger } from "react-icons/fa"
+import { FaPizzaSlice, FaHamburger, FaMortarPestle } from "react-icons/fa"
 import { GiNoodles, GiChopsticks } from "react-icons/gi"
-import styled from "styled-components"
-import { Link, NavLink } from "react-router-dom"
+
+import { Link } from "react-router-dom"
 
 const Category = () => {
 	// return (
@@ -27,6 +27,12 @@ const Category = () => {
 	return (
 		<div className="container mt-2 ">
 			<div className="row cuisine">
+				<div className="feature-box  text-center ">
+					<Link to={"/cuisine/African"}>
+						<FaMortarPestle className="four" />
+						<h4>African</h4>
+					</Link>
+				</div>
 				<div className="feature-box  text-center ">
 					<Link to={"/cuisine/Thai"}>
 						<FaPizzaSlice className="four" />

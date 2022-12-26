@@ -77,6 +77,16 @@ header .container {
 	padding: 0;
 }
 
+.container-fluids {
+	padding: 5%;
+	border: 2px solid black;
+}
+.containers {
+	padding: 20px;
+	margin: 30px;
+	border: 2px solid #212529;
+}
+
 /* search  */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap");
@@ -121,10 +131,6 @@ input {
 	padding: 2%;
 }
 
-.feature-box.active {
-	background: linear-gradient(to right, #f27121, #e94057);
-}
-
 .four {
 	font-size: 4em;
 	color: white;
@@ -134,9 +140,47 @@ input {
 	margin: 0.3%;
 }
 
+.four:hover {
+	background: linear-gradient(to right, #f27121, #e94057);
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
 .cuisine {
 	padding: 1%;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1%;
+}
+.popular {
+	/* padding: 1%; */
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1%;
+}
+
+.popular-box {
+	padding: 1%;
+}
+
+.popular img {
+	max-width: 100%;
+	background-color: red;
+}
+
+@media (min-width: 598px) {
+	.popular {
+		/* padding: 1%; */
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1%;
+	}
+}
+@media (min-width: 798px) {
+	.popular {
+		/* padding: 1%; */
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1%;
+	}
 }
