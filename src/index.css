@@ -187,13 +187,18 @@ input {
 } */
 
 .myCard {
-	height: 30vh !important;
+	height: 33vh !important;
 	padding: 2.5vh !important;
 	background: inherit;
 	border: none !important;
 	color: #fff;
 	border-radius: 1em;
 }
+
+.myCard img {
+	object-fit: contain;
+}
+
 .myCard:hover {
 	transform: scale(1.1);
 	transition: 0.3s;

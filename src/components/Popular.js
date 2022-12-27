@@ -2,13 +2,15 @@ import React from "react"
 import { useEffect, useState } from "react"
 
 import { Swiper, SwiperSlide } from "swiper/react"
-import { FreeMode } from "swiper"
+
+import SwiperCore, { Autoplay, FreeMode } from "swiper"
 
 import "swiper/css"
 import "swiper/css/free-mode"
 
-// import "bootstrap/dist/css/bootstrap.min.css"
 import CardComponent from "./Card"
+
+SwiperCore.use([Autoplay])
 
 // import { title } from "process"
 
@@ -38,9 +40,13 @@ const Popular = () => {
 			<h3 className="text-center mb-2">Popular Picks</h3>
 			<div className="container py-4 px-4 justify-content-center myPopular">
 				<Swiper
+					autoplay={{
+						delay: 2500,
+						disableOnInteraction: false
+					}}
 					freeMode={true}
 					grabCursor={true}
-					modules={[FreeMode]}
+					modules={[FreeMode, Autoplay]}
 					className="mySwiper"
 					slidesPerView={5}
 					spaceBetween={10}
