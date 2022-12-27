@@ -152,8 +152,8 @@ input {
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1%;
 }
-.popular {
-	/* padding: 1%; */
+/* .popular {
+	padding: 1%;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1%;
@@ -170,7 +170,7 @@ input {
 
 @media (min-width: 598px) {
 	.popular {
-		/* padding: 1%; */
+		padding: 1%;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 1%;
@@ -178,9 +178,16 @@ input {
 }
 @media (min-width: 798px) {
 	.popular {
-		/* padding: 1%; */
+		padding: 1%;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 1%;
 	}
+} */
+
+.myCard {
+	height: 30vh !important;
+	padding: 2vh !important;
+
+	color: #f27121;
 }

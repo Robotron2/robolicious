@@ -10,7 +10,7 @@ import "swiper/css/free-mode"
 // import "bootstrap/dist/css/bootstrap.min.css"
 import CardComponent from "./Card"
 
-import robolicious from "./robolicious.png"
+// import { title } from "process"
 
 const Popular = () => {
 	const [popular, setPopular] = useState([])
@@ -21,7 +21,7 @@ const Popular = () => {
 		if (check) {
 			setPopular(JSON.parse(check))
 		} else {
-			const url = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=8`)
+			const url = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`)
 			const urlData = await url.json()
 			localStorage.setItem("popular", JSON.stringify(urlData.recipes))
 			setPopular(urlData.recipes)
@@ -61,62 +61,13 @@ const Popular = () => {
 					}
 				}}
 			>
-				<SwiperSlide>
-					<CardComponent
-						data={{
-							imgSrc: robolicious,
-							title: "Theo"
-						}}
-					/>
-				</SwiperSlide>
-				<SwiperSlide>
-					<CardComponent
-						data={{
-							imgSrc: robolicious,
-							title: "Theo"
-						}}
-					/>
-				</SwiperSlide>
-				<SwiperSlide>
-					<CardComponent
-						data={{
-							imgSrc: robolicious,
-							title: "Theo"
-						}}
-					/>
-				</SwiperSlide>
-				<SwiperSlide>
-					<CardComponent
-						data={{
-							imgSrc: robolicious,
-							title: "Theo"
-						}}
-					/>
-				</SwiperSlide>
-				<SwiperSlide>
-					<CardComponent
-						data={{
-							imgSrc: robolicious,
-							title: "Theo"
-						}}
-					/>
-				</SwiperSlide>
-				<SwiperSlide>
-					<CardComponent
-						data={{
-							imgSrc: robolicious,
-							title: "Theo"
-						}}
-					/>
-				</SwiperSlide>
-				<SwiperSlide>
-					<CardComponent
-						data={{
-							imgSrc: robolicious,
-							title: "Theo"
-						}}
-					/>
-				</SwiperSlide>
+				{popular.map((recipe) => {
+					return (
+						<SwiperSlide>
+							<CardComponent image={recipe.image} title={recipe.title} />
+						</SwiperSlide>
+					)
+				})}
 			</Swiper>
 		</div>
 	)
