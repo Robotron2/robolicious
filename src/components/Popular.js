@@ -70,7 +70,7 @@ const Popular = () => {
 				>
 					{popular.map((recipe) => {
 						return (
-							<SwiperSlide>
+							<SwiperSlide key={recipe.id}>
 								<Link to={`recipe/${recipe.id}`}>
 									<CardComponent image={recipe.image} title={recipe.title} />
 								</Link>

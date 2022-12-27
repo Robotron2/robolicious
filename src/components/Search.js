@@ -13,8 +13,8 @@ const Search = () => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<div class="container">
-				<div class="inputs">
+			<div className="container">
+				<div className="inputs">
 					<input type="text" onChange={(e) => setInput(e.target.value)} value={input} placeholder="Search Recipe" />
 				</div>
 			</div>
