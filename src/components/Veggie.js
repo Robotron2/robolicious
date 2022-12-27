@@ -71,7 +71,9 @@ const Veggie = () => {
 					{veggie.map((recipe) => {
 						return (
 							<SwiperSlide>
-								<CardComponent image={recipe.image} title={recipe.title} />
+								<Link to={`recipe/${recipe.id}`}>
+									<CardComponent image={recipe.image} title={recipe.title} />
+								</Link>
 							</SwiperSlide>
 						)
 					})}

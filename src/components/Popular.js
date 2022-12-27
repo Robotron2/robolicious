@@ -1,10 +1,9 @@
 import React from "react"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 import { Swiper, SwiperSlide } from "swiper/react"
-
 import SwiperCore, { Autoplay, FreeMode } from "swiper"
-
 import "swiper/css"
 import "swiper/css/free-mode"
 
@@ -72,7 +71,9 @@ const Popular = () => {
 					{popular.map((recipe) => {
 						return (
 							<SwiperSlide>
-								<CardComponent image={recipe.image} title={recipe.title} />
+								<Link to={`recipe/${recipe.id}`}>
+									<CardComponent image={recipe.image} title={recipe.title} />
+								</Link>
 							</SwiperSlide>
 						)
 					})}
