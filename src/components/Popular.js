@@ -1,11 +1,16 @@
+import React from "react"
 import { useEffect, useState } from "react"
-import { Swiper, SwiperSlide } from "swiper/react"
 
+import { Swiper, SwiperSlide } from "swiper/react"
 import { FreeMode } from "swiper"
 
 import "swiper/css"
 import "swiper/css/free-mode"
+
+// import "bootstrap/dist/css/bootstrap.min.css"
 import CardComponent from "./Card"
+
+import robolicious from "./robolicious.png"
 
 const Popular = () => {
 	const [popular, setPopular] = useState([])
@@ -29,12 +34,85 @@ const Popular = () => {
 	}, [])
 
 	return (
-		<div className="container py-4 px-4 justify-content-center bg-dark">
-			<Swiper freeMode={true} grabCursor={true} modules={[FreeMode]} className="mySwiper" slidesPerView={5} spaceBetween={30}>
+		<div className="container py-4 px-4 justify-content-center bg-danger">
+			<Swiper
+				freeMode={true}
+				grabCursor={true}
+				modules={[FreeMode]}
+				className="mySwiper"
+				slidesPerView={5}
+				spaceBetween={10}
+				breakpoints={{
+					960: {
+						slidesPerView: 4,
+						spaceBetween: 8
+					},
+					720: {
+						slidesPerView: 3,
+						spaceBetween: 6
+					},
+					540: {
+						slidesPerView: 2,
+						spaceBetween: 4
+					},
+					220: {
+						slidesPerView: 1,
+						spaceBetween: 2
+					}
+				}}
+			>
 				<SwiperSlide>
 					<CardComponent
 						data={{
-							imgSrc: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.britannica.com%2F36%2F123536-050-95CB0C6E%2FVariety-fruits-vegetables.jpg&imgrefurl=https%3A%2F%2Fwww.britannica.com%2Ftopic%2Ffood&tbnid=rMZ8I5b2kc3W3M&vet=12ahUKEwi_wYPq_pf8AhVCuUwKHT2QDKYQMygBegUIARDfAQ..i&docid=DJp6ra_owrcaaM&w=1600&h=1068&q=food&ved=2ahUKEwi_wYPq_pf8AhVCuUwKHT2QDKYQMygBegUIARDfAQ",
+							imgSrc: robolicious,
+							title: "Theo"
+						}}
+					/>
+				</SwiperSlide>
+				<SwiperSlide>
+					<CardComponent
+						data={{
+							imgSrc: robolicious,
+							title: "Theo"
+						}}
+					/>
+				</SwiperSlide>
+				<SwiperSlide>
+					<CardComponent
+						data={{
+							imgSrc: robolicious,
+							title: "Theo"
+						}}
+					/>
+				</SwiperSlide>
+				<SwiperSlide>
+					<CardComponent
+						data={{
+							imgSrc: robolicious,
+							title: "Theo"
+						}}
+					/>
+				</SwiperSlide>
+				<SwiperSlide>
+					<CardComponent
+						data={{
+							imgSrc: robolicious,
+							title: "Theo"
+						}}
+					/>
+				</SwiperSlide>
+				<SwiperSlide>
+					<CardComponent
+						data={{
+							imgSrc: robolicious,
+							title: "Theo"
+						}}
+					/>
+				</SwiperSlide>
+				<SwiperSlide>
+					<CardComponent
+						data={{
+							imgSrc: robolicious,
 							title: "Theo"
 						}}
 					/>
