@@ -21,6 +21,7 @@ body {
 	color: var(--color-default);
 	font-family: var(--font-default);
 	background-color: #fae7e7;
+	padding: 2vh;
 }
 
 h4 {
@@ -187,7 +188,18 @@ input {
 
 .myCard {
 	height: 30vh !important;
-	padding: 2vh !important;
+	padding: 2.5vh !important;
+	background: inherit;
+	border: none !important;
+	color: #fff;
+	border-radius: 1em;
+}
+.myCard:hover {
+	transform: scale(1.1);
+	transition: 0.3s;
+}
 
-	color: #f27121;
+.myPopular {
+	background: linear-gradient(to right, #da7d44, #db6978, #f1caca);
+	border-radius: 1em;
 }
