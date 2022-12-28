@@ -1,7 +1,5 @@
-import styled from "styled-components"
-import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 const Cuisine = () => {
 	const [cuisine, setCuisine] = useState([])
@@ -18,34 +16,57 @@ const Cuisine = () => {
 		// console.log(params.type)
 	}, [params.type])
 
+	// return (
+	// 	<div className="grid-class">
+	// 		{cuisine.map((item) => {
+	// 			return (
+	// 				<Card key={item.id}>
+	// 					<img src={item.image} alt={item.title} />
+	// 					<h4>{item.title}</h4>
+	// 				</Card>
+	// 			)
+	// 		})}
+	// 	</div>
+	// )
 	return (
-		<div className="grid-class">
+		<ul className="ulCards">
 			{cuisine.map((item) => {
 				return (
-					<Card key={item.id}>
-						<img src={item.image} alt={item.title} />
-						<h4>{item.title}</h4>
-					</Card>
+					<Link to={`/recipe/${item.id}`} className="liCard" key={item.id}>
+						<li>
+							<img src={item.image} className="liCard-img" alt="" />
+							<div className="liCard-overlay">
+								<div className="liCard-header">
+									<svg className="liCard-arc" xmlns="http://www.w3.org/2000/svg">
+										<path />
+									</svg>
+									<div className="liCard-header-text">
+										<h3 className="liCard-title">{item.title}</h3>
+									</div>
+								</div>
+							</div>
+						</li>
+					</Link>
 				)
 			})}
-		</div>
+		</ul>
 	)
 }
 
-const Card = styled.div`
-	justify-content: center;
-	align-item: center;
-	img {
-		width: 100%;
-		border-radius: 2rem;
-	}
-	a {
-		text-decoration: none;
-	}
-	h4 {
-		text-align: center;
-		padding: 1rem;
-	}
-`
+// const Card = styled.div`
+// 	justify-content: center;
+// 	align-item: center;
+// 	img {
+// 		width: 100%;
+// 		border-radius: 2rem;
+// 	}
+// 	a {
+// 		text-decoration: none;
+// 	}
+// 	h4 {
+// 		text-align: center;
+// 		padding: 1rem;
+// 	}
+// `
 
 export default Cuisine
