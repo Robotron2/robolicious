@@ -321,3 +321,23 @@ input {
 		font-size: 0.7rem;
 	}
 }
+
+@media (max-width: 373px) {
+	.navbar-brand h1 {
+		font-size: 1.2rem;
+	}
+
+	.contact-btn {
+		font-size: 10px;
+		padding: 4px 10px;
+	}
+
+	.four {
+		font-size: 3em;
+		color: white;
+		background: linear-gradient(35deg, #494949, #313131);
+		border-radius: 50%;
+		padding: 15px;
+		margin: 0.3%;
+	}
+}

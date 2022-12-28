@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 const Category = () => {
 	return (
-		<div className="container mt-2 ">
+		<div className="container mt-2 mb-4">
 			<div className="row cuisine">
 				<div className="feature-box  text-center ">
 					<Link to={"/cuisine/African"}>
