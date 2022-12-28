@@ -27,7 +27,7 @@ const MoreComponent = () => {
 		<div className="container">
 			<div className="container mt-2 mb-4">
 				<ul className="ulCards">
-					<Link>
+					<Link to={"/cuisine/British"}>
 						<li className="liCard">
 							<img src={british} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -43,7 +43,7 @@ const MoreComponent = () => {
 						</li>
 					</Link>
 
-					<Link>
+					<Link to={"/cuisine/Cajun"}>
 						<li className="liCard">
 							<img src={cajun} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -58,7 +58,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Caribbean"}>
 						<li className="liCard">
 							<img src={caribbean} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -73,7 +73,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Eastern European"}>
 						<li className="liCard">
 							<img src={easternEuropean} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -88,7 +88,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/European"}>
 						<li className="liCard">
 							<img src={european} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -103,7 +103,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/French"}>
 						<li className="liCard">
 							<img src={french} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -118,7 +118,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/German"}>
 						<li className="liCard">
 							<img src={german} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -133,7 +133,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Greek"}>
 						<li className="liCard">
 							<img src={greek} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -148,7 +148,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Indian"}>
 						<li className="liCard">
 							<img src={indian} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -163,7 +163,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Irish"}>
 						<li className="liCard">
 							<img src={irish} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -178,7 +178,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Jewish"}>
 						<li className="liCard">
 							<img src={jewish} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -193,7 +193,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Korean"}>
 						<li className="liCard">
 							<img src={korean} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -208,7 +208,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Latin American"}>
 						<li className="liCard">
 							<img src={latinAmerican} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -223,7 +223,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Mediterranean"}>
 						<li className="liCard">
 							<img src={mediterranean} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -238,7 +238,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Mexican"}>
 						<li className="liCard">
 							<img src={mexican} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -253,7 +253,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Middle Eastern"}>
 						<li className="liCard">
 							<img src={middleEastern} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -268,7 +268,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Nordic"}>
 						<li className="liCard">
 							<img src={nordic} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -283,7 +283,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Southern"}>
 						<li className="liCard">
 							<img src={southern} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -298,7 +298,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Spanish"}>
 						<li className="liCard">
 							<img src={spanish} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
@@ -313,7 +313,7 @@ const MoreComponent = () => {
 							</div>
 						</li>
 					</Link>
-					<Link>
+					<Link to={"/cuisine/Vietnamese"}>
 						<li className="liCard">
 							<img src={vietnamese} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
