@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
-import styled from "styled-components"
 
 const SearchedPage = () => {
 	const [searchedRecipes, setSearchedRecipes] = useState([])
@@ -20,8 +19,8 @@ const SearchedPage = () => {
 		<ul className="ulCards">
 			{searchedRecipes.map((item) => {
 				return (
-					<Link to={`/recipe/${item.id}`} className="liCard">
-						<li key={item.id}>
+					<Link to={`/recipe/${item.id}`} className="liCard" key={item.id}>
+						<li>
 							<img src={item.image} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
 								<div className="liCard-header">

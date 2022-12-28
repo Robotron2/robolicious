@@ -286,3 +286,38 @@ input {
 	color: var(--surface-color);
 	font-weight: 600;
 }
+
+/* Recipe Page */
+
+@media (min-width: 990px) {
+	.recipe-container {
+		display: block;
+		/* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+
+		/* gap: 20px; */
+	}
+}
+@media (max-width: 800px) {
+	.recipe-container {
+		display: block;
+	}
+	.recipe-container img {
+		max-width: 80%;
+	}
+}
+@media (max-width: 456px) {
+	.recipe-container {
+		display: block;
+	}
+	.recipe-container img {
+		max-width: 80%;
+	}
+	.btn-container .btn {
+		width: 100px;
+		font-size: 10px;
+		margin: 2px !important;
+	}
+	.body {
+		font-size: 0.7rem;
+	}
+}
