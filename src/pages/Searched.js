@@ -20,7 +20,7 @@ const SearchedPage = () => {
 		<ul className="ulCards">
 			{searchedRecipes.map((item) => {
 				return (
-					<Link className="liCard">
+					<Link to={`/recipe/${item.id}`} className="liCard">
 						<li key={item.id}>
 							<img src={item.image} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
