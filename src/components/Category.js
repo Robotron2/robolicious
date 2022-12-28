@@ -1,9 +1,16 @@
 import { FaPizzaSlice, FaHamburger, FaMortarPestle } from "react-icons/fa"
 import { GiNoodles, GiChopsticks } from "react-icons/gi"
+import { RiMoreFill } from "react-icons/ri"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Category = () => {
+	const navigate = useNavigate()
+
+	const handleClick = () => {
+		navigate(`/more`)
+	}
+
 	return (
 		<div className="container mt-2 mb-4">
 			<div className="row cuisine">
@@ -36,6 +43,10 @@ const Category = () => {
 						<GiChopsticks className="four" />
 						<h4>Japanese</h4>
 					</Link>
+				</div>
+				<div className="feature-box  text-center " onClick={handleClick}>
+					<RiMoreFill className="four" />
+					<h4 className>More</h4>
 				</div>
 			</div>
 		</div>

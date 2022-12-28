@@ -148,6 +148,11 @@ input {
 	cursor: pointer;
 	transform: scale(1.1);
 }
+.four:active {
+	background: linear-gradient(to right, #f27121, #e94057);
+	cursor: pointer;
+	transform: scale(1.1);
+}
 
 .cuisine {
 	padding: 1%;
