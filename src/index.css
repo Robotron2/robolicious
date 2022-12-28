@@ -238,7 +238,7 @@ input {
 	z-index: 1;
 	border-radius: calc(var(--curve) * 1px);
 	background-color: var(--surface-color);
-	background-color: #db6978;
+
 	transform: translateY(100%);
 	transition: 0.3s ease-in-out;
 }
@@ -252,9 +252,11 @@ input {
 	display: flex;
 	align-items: center;
 	gap: 2em;
-	padding: 2em;
+	padding: 1em;
 	border-radius: calc(var(--curve) * 1px) 0 0 0;
-	background-color: var(--surface-color);
+	/* background-color: var(--surface-color); */
+	background-color: #ca7c7c;
+
 	transform: translateY(-100%);
 	transition: 0.2s ease-in-out;
 }
@@ -280,5 +282,7 @@ input {
 .liCard-title {
 	font-size: 1em;
 	margin: 0 0 0.3em;
-	color: #6a515e;
+	/* color: #6a515e; */
+	color: var(--surface-color);
+	font-weight: 600;
 }

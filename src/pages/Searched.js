@@ -16,42 +16,13 @@ const SearchedPage = () => {
 		getSearchData(params.searchInput)
 	}, [params.searchInput])
 
-	// return (
-	// 	<div className="grid-class">
-	// 		{searchedRecipes.map((item) => {
-	// 			return (
-	// 				<Card key={item.id}>
-	// <Link to={`recipe/${item.id}`}>
-	// 	<img src={item.image} alt={item.title} />
-	// 	<h4>{item.title}</h4>
-	// </Link>
-	// 				</Card>
-	// 			)
-	// 		})}
-	// 	</div>
-	// )
-	// return (
-	// 	<div className="container mt-2 ">
-	// 		<div className="row cuisine-search">
-	// 			{searchedRecipes.map((item) => {
-	// 				return (
-	// 					<Link to={`recipe/${item.id}`}>
-	// 						<img src={item.image} alt={item.title} />
-	// 						<h4>{item.title}</h4>
-	// 					</Link>
-	// 				)
-	// 			})}
-	// 		</div>
-	// 	</div>
-	// )
-
 	return (
-		<ul class="ulCards">
+		<ul className="ulCards">
 			{searchedRecipes.map((item) => {
 				return (
-					<li>
-						<Link to={`recipe/${item.id}`} className="liCard">
-							<img src={item.image} class="liCard-img" alt="" />
+					<Link className="liCard">
+						<li key={item.id}>
+							<img src={item.image} className="liCard-img" alt="" />
 							<div className="liCard-overlay">
 								<div className="liCard-header">
 									<svg className="liCard-arc" xmlns="http://www.w3.org/2000/svg">
@@ -62,28 +33,12 @@ const SearchedPage = () => {
 									</div>
 								</div>
 							</div>
-						</Link>
-					</li>
+						</li>
+					</Link>
 				)
 			})}
 		</ul>
 	)
 }
-
-// const Card = styled.div`
-// 	justify-content: center;
-// 	align-item: center;
-// 	img {
-// 		width: 100%;
-// 		border-radius: 2rem;
-// 	}
-// 	a {
-// 		text-decoration: none;
-// 	}
-// 	h4 {
-// 		text-align: center;
-// 		padding: 1rem;
-// 	}
-// `
 
 export default SearchedPage
