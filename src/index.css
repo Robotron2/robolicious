@@ -15,6 +15,8 @@
 	--color-default: #212529;
 	--color-primary: #ce1212;
 	--color-secondary: #37373f;
+	--surface-color: #fff;
+	--curve: 40;
 }
 
 body {
@@ -153,39 +155,27 @@ input {
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1%;
 }
-/* .popular {
+.cuisine-search {
 	padding: 1%;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1%;
 }
+/* 
+960
+720
+540
+220 */
 
-.popular-box {
-	padding: 1%;
-}
-
-.popular img {
-	max-width: 100%;
-	background-color: red;
-}
-
-@media (min-width: 598px) {
-	.popular {
+/* Cuisine Search Media Query */
+@media (min-width: 960px) {
+	.cuisine-search {
 		padding: 1%;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		gap: 1%;
 	}
 }
-@media (min-width: 798px) {
-	.popular {
-		padding: 1%;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 1%;
-	}
-} */
-
 .myCard {
 	height: 33vh !important;
 	padding: 2.5vh !important;
@@ -207,4 +197,88 @@ input {
 .myPopular {
 	background: linear-gradient(to right, #da7d44, #db6978, #f1caca);
 	border-radius: 1em;
+}
+
+/* CodePen Cards */
+
+/* body {
+	font-family: "Noto Sans JP", sans-serif;
+	background-color: #fef8f8;
+} */
+
+.ulCards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	margin: 4rem 5vw;
+	padding: 0;
+	list-style-type: none;
+}
+
+.liCard {
+	position: relative;
+	display: block;
+	height: 100%;
+	border-radius: calc(var(--curve) * 1px);
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.liCard-img {
+	width: 100%;
+	height: auto;
+	border-radius: calc(var(--curve) * 1px);
+}
+
+.liCard-overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	border-radius: calc(var(--curve) * 1px);
+	background-color: var(--surface-color);
+	background-color: #db6978;
+	transform: translateY(100%);
+	transition: 0.3s ease-in-out;
+}
+
+.liCard:hover .liCard-overlayy {
+	transform: translateY(0);
+}
+
+.liCard-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 2em;
+	padding: 2em;
+	border-radius: calc(var(--curve) * 1px) 0 0 0;
+	background-color: var(--surface-color);
+	transform: translateY(-100%);
+	transition: 0.2s ease-in-out;
+}
+
+.liCard-arc {
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	z-index: 1;
+}
+
+.liCard-arc path {
+	fill: var(--surface-color);
+	/* d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z"); */
+}
+
+.liCard:hover .liCard-header {
+	transform: translateY(0);
+}
+
+.liCard-title {
+	font-size: 1em;
+	margin: 0 0 0.3em;
+	color: #6a515e;
 }

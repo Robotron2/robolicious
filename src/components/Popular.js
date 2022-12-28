@@ -51,11 +51,11 @@ const Popular = () => {
 					spaceBetween={10}
 					breakpoints={{
 						960: {
-							slidesPerView: 4,
+							slidesPerView: 3,
 							spaceBetween: 8
 						},
 						720: {
-							slidesPerView: 3,
+							slidesPerView: 2,
 							spaceBetween: 6
 						},
 						540: {

@@ -16,36 +16,74 @@ const SearchedPage = () => {
 		getSearchData(params.searchInput)
 	}, [params.searchInput])
 
+	// return (
+	// 	<div className="grid-class">
+	// 		{searchedRecipes.map((item) => {
+	// 			return (
+	// 				<Card key={item.id}>
+	// <Link to={`recipe/${item.id}`}>
+	// 	<img src={item.image} alt={item.title} />
+	// 	<h4>{item.title}</h4>
+	// </Link>
+	// 				</Card>
+	// 			)
+	// 		})}
+	// 	</div>
+	// )
+	// return (
+	// 	<div className="container mt-2 ">
+	// 		<div className="row cuisine-search">
+	// 			{searchedRecipes.map((item) => {
+	// 				return (
+	// 					<Link to={`recipe/${item.id}`}>
+	// 						<img src={item.image} alt={item.title} />
+	// 						<h4>{item.title}</h4>
+	// 					</Link>
+	// 				)
+	// 			})}
+	// 		</div>
+	// 	</div>
+	// )
+
 	return (
-		<div className="grid-class">
+		<ul class="ulCards">
 			{searchedRecipes.map((item) => {
 				return (
-					<Card key={item.id}>
-						<Link to={`recipe/${item.id}`}>
-							<img src={item.image} alt={item.title} />
-							<h4>{item.title}</h4>
+					<li>
+						<Link to={`recipe/${item.id}`} className="liCard">
+							<img src={item.image} class="liCard-img" alt="" />
+							<div className="liCard-overlay">
+								<div className="liCard-header">
+									<svg className="liCard-arc" xmlns="http://www.w3.org/2000/svg">
+										<path />
+									</svg>
+									<div className="liCard-header-text">
+										<h3 className="liCard-title">{item.title}</h3>
+									</div>
+								</div>
+							</div>
 						</Link>
-					</Card>
+					</li>
 				)
 			})}
-		</div>
+		</ul>
 	)
 }
 
-const Card = styled.div`
-	justify-content: center;
-	align-item: center;
-	img {
-		width: 100%;
-		border-radius: 2rem;
-	}
-	a {
-		text-decoration: none;
-	}
-	h4 {
-		text-align: center;
-		padding: 1rem;
-	}
-`
+// const Card = styled.div`
+// 	justify-content: center;
+// 	align-item: center;
+// 	img {
+// 		width: 100%;
+// 		border-radius: 2rem;
+// 	}
+// 	a {
+// 		text-decoration: none;
+// 	}
+// 	h4 {
+// 		text-align: center;
+// 		padding: 1rem;
+// 	}
+// `
 
 export default SearchedPage
