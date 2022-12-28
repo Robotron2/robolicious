@@ -29,27 +29,29 @@ const Cuisine = () => {
 	// 	</div>
 	// )
 	return (
-		<ul className="ulCards">
-			{cuisine.map((item) => {
-				return (
-					<Link to={`/recipe/${item.id}`} className="liCard" key={item.id}>
-						<li>
-							<img src={item.image} className="liCard-img" alt="" />
-							<div className="liCard-overlay">
-								<div className="liCard-header">
-									<svg className="liCard-arc" xmlns="http://www.w3.org/2000/svg">
-										<path />
-									</svg>
-									<div className="liCard-header-text">
-										<h3 className="liCard-title">{item.title}</h3>
+		<div className="container-fluid">
+			<ul className="ulCards">
+				{cuisine.map((item) => {
+					return (
+						<Link to={`/recipe/${item.id}`} className="liCard" key={item.id}>
+							<li>
+								<img src={item.image} className="liCard-img" alt="" />
+								<div className="liCard-overlay">
+									<div className="liCard-header">
+										<svg className="liCard-arc" xmlns="http://www.w3.org/2000/svg">
+											<path />
+										</svg>
+										<div className="liCard-header-text">
+											<h3 className="liCard-title">{item.title}</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-						</li>
-					</Link>
-				)
-			})}
-		</ul>
+							</li>
+						</Link>
+					)
+				})}
+			</ul>
+		</div>
 	)
 }
 
