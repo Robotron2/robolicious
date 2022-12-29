@@ -4,6 +4,8 @@ import { RiMoreFill } from "react-icons/ri"
 
 import { Link } from "react-router-dom"
 
+import "../index.css"
+
 const Category = () => {
 	return (
 		<div className="container mt-2 mb-4">

@@ -1,6 +1,6 @@
 import { useState } from "react"
-
 import { useNavigate } from "react-router-dom"
+import "../index.css"
 
 const Search = () => {
 	const [input, setInput] = useState("")
@@ -9,6 +9,7 @@ const Search = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		navigate(`searched/${input}`)
+		setInput("")
 	}
 
 	return (
