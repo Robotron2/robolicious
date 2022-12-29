@@ -395,18 +395,18 @@ input {
 	color: var(--color-primary);
 }
 
-.contact .php-email-form {
+.contact .emailForm {
 	width: 100%;
 	margin-top: 30px;
 	background: #fff;
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
 }
 
-.contact .php-email-form .form-group {
+.contact .emailForm .form-group {
 	padding-bottom: 20px;
 }
 
-.contact .php-email-form .error-message {
+.contact .emailForm .error-message {
 	display: none;
 	color: #fff;
 	background: #df1529;
@@ -415,11 +415,11 @@ input {
 	font-weight: 600;
 }
 
-.contact .php-email-form .error-message br + br {
+.contact .emailForm .error-message br + br {
 	margin-top: 25px;
 }
 
-.contact .php-email-form .sent-message {
+.contact .emailForm .sent-message {
 	display: none;
 	color: #fff;
 	background: #059652;
@@ -428,14 +428,14 @@ input {
 	font-weight: 600;
 }
 
-.contact .php-email-form .loading {
+.contact .emailForm .loading {
 	display: none;
 	background: #fff;
 	text-align: center;
 	padding: 15px;
 }
 
-.contact .php-email-form .loading:before {
+.contact .emailForm .loading:before {
 	content: "";
 	display: inline-block;
 	border-radius: 50%;
@@ -448,27 +448,27 @@ input {
 	animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+.contact .emailForm input,
+.contact .emailForm textarea {
 	border-radius: 0;
 	box-shadow: none;
 	font-size: 14px;
 }
 
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
+.contact .emailForm input:focus,
+.contact .emailForm textarea:focus {
 	border-color: var(--color-primary);
 }
 
-.contact .php-email-form input {
+.contact .emailForm input {
 	height: 48px;
 }
 
-.contact .php-email-form textarea {
+.contact .emailForm textarea {
 	padding: 10px 12px;
 }
 
-.contact .php-email-form button[type="submit"] {
+.contact .emailForm button[type="submit"] {
 	background: var(--color-primary);
 	border: 0;
 	padding: 12px 40px;
@@ -477,7 +477,7 @@ input {
 	border-radius: 50px;
 }
 
-.contact .php-email-form button[type="submit"]:hover {
+.contact .emailForm button[type="submit"]:hover {
 	background: #ec2727;
 }
 
