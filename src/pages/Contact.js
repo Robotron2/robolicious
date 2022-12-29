@@ -1,6 +1,9 @@
+import Header from "../components/Header"
+
 const Contact = () => {
 	return (
 		<div>
+			<Header />
 			<section id="contact" class="contact">
 				<div class="container" data-aos="fade-up">
 					<div class="section-header">

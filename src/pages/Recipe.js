@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { motion } from "framer-motion"
+import Header from "../components/Header"
+import Search from "../components/Search"
+import Category from "../components/Category"
 
 const Recipe = () => {
 	const [details, setDetails] = useState({})
@@ -22,6 +25,9 @@ const Recipe = () => {
 
 	return (
 		<div>
+			<Header />
+			<Search />
+			<Category />
 			{isLoading && (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
