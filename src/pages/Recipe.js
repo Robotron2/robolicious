@@ -21,7 +21,7 @@ const Recipe = () => {
 	}, [params.recipeId])
 
 	return (
-		<div className="container">
+		<div>
 			{isLoading && (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

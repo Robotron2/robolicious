@@ -19,7 +19,7 @@ const SearchedPage = () => {
 	}, [params.searchInput])
 
 	return (
-		<div className="container">
+		<div>
 			{isLoading && (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ const SearchedPage = () => {
 				</svg>
 			)}
 			{!isLoading && (
-				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container">
+				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container-fluid">
 					<ul className="ulCards">
 						{searchedRecipes.map((item) => {
 							return (
