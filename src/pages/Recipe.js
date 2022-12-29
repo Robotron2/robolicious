@@ -6,12 +6,14 @@ import { motion } from "framer-motion"
 const Recipe = () => {
 	const [details, setDetails] = useState({})
 	const [activeTab, setActiveTab] = useState("instructions")
+	const [isLoading, setIsLoading] = useState(false)
 	const params = useParams()
 
 	const fetchDetails = async () => {
 		const data = await fetch(`https://api.spoonacular.com/recipes/${params.recipeId}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
 		const detailData = await data.json()
 		setDetails(detailData)
+		setIsLoading(true)
 	}
 
 	useEffect(() => {
