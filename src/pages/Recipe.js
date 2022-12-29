@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { motion } from "framer-motion"
 
 const Recipe = () => {
 	const [details, setDetails] = useState({})
@@ -18,7 +19,7 @@ const Recipe = () => {
 	}, [params.recipeId])
 
 	return (
-		<div className="container mt-5 ">
+		<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container mt-5 ">
 			<div className="recipe-container">
 				<div className="container">
 					<h3>{details.title}</h3>
@@ -48,7 +49,7 @@ const Recipe = () => {
 					)}
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

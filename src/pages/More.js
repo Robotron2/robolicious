@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 // Images
 import british from "../images/british.jpg"
@@ -24,7 +25,7 @@ import vietnamese from "../images/vietnamese.jpg"
 
 const MoreComponent = () => {
 	return (
-		<div className="container">
+		<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container">
 			<div className="container mt-2 mb-4">
 				<ul className="ulCards">
 					<Link to={"/cuisine/British"}>
@@ -330,7 +331,7 @@ const MoreComponent = () => {
 					</Link>
 				</ul>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
