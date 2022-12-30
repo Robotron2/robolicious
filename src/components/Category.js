@@ -1,6 +1,5 @@
 import { FaPizzaSlice, FaHamburger, FaMortarPestle } from "react-icons/fa"
 import { GiNoodles, GiChopsticks } from "react-icons/gi"
-import { RiMoreFill } from "react-icons/ri"
 
 import { Link } from "react-router-dom"
 
@@ -38,12 +37,6 @@ const Category = () => {
 					<Link to={"/cuisine/Japanese"}>
 						<GiChopsticks className="four" />
 						<h4>Japanese</h4>
-					</Link>
-				</div>
-				<div className="feature-box  text-center ">
-					<Link to={"/more"}>
-						<RiMoreFill className="four" />
-						<h4>More</h4>
 					</Link>
 				</div>
 			</div>

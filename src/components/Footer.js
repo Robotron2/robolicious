@@ -19,14 +19,14 @@ const Footer = () => {
 						</Link>
 					</li>
 					<li class="ms-3">
-						<Link to={"/https://github.com/Robotron2"}>
+						<a href="https://github.com/Robotron2" target="_blank" rel="noopener noreferrer">
 							<BsGithub className="two" />
-						</Link>
+						</a>
 					</li>
 					<li class="ms-3">
-						<Link to={"/https://twitter.com/Robotron090343"}>
+						<a href="https://twitter.com/Robotron090343" target="_blank" rel="noreferrer">
 							<BsTwitter className="two" />
-						</Link>
+						</a>
 					</li>
 				</ul>
 			</footer>

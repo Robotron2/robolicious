@@ -17,7 +17,6 @@ const Pages = () => {
 				<Route path="/cuisine/:type" element={<Cuisine />} />
 				<Route path="/searched/:searchInput" element={<SearchedPage />} />
 				<Route path="/recipe/:recipeId" element={<Recipe />} />
-
 				<Route path="/contact" element={<Contact />} />
 			</Routes>
 		</AnimatePresence>
