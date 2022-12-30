@@ -3,6 +3,7 @@ import "./index.css"
 // import Category from "./components/Category"
 import Pages from "./pages/Pages"
 import { BrowserRouter } from "react-router-dom"
+import Footer from "./components/Footer"
 // import Search from "./components/Search"
 // import Header from "./components/Header"
 // import { AnimatePresence } from "framer-motion"
@@ -17,6 +18,7 @@ function App() {
 		<div className="App">
 			<BrowserRouter>
 				<Pages />
+				<Footer />
 			</BrowserRouter>
 		</div>
 	)
