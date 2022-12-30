@@ -19,11 +19,17 @@
 	--curve: 40;
 }
 
+::selection {
+	background: var(--color-primary);
+	color: var(--surface-color);
+}
+
 body {
 	color: var(--color-default);
 	font-family: var(--font-default);
 	padding: 2vh;
-	background: linear-gradient(to right, #fae7e7, #c8e8e9);
+	/* background: linear-gradient(to right, #fae7e7, #c8e8e9); */
+	background: #eeeeee;
 }
 
 h4 {
