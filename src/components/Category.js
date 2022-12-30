@@ -1,13 +1,13 @@
 import { FaPizzaSlice, FaHamburger, FaMortarPestle } from "react-icons/fa"
 import { GiNoodles, GiChopsticks } from "react-icons/gi"
-
+import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
 import "../index.css"
 
 const Category = () => {
 	return (
-		<div className="container mt-2 mb-4">
+		<motion.div className="container mt-2 mb-4">
 			<div className="row cuisine">
 				<div className="feature-box  text-center ">
 					<Link to={"/cuisine/African"}>
@@ -40,7 +40,7 @@ const Category = () => {
 					</Link>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
