@@ -15,7 +15,7 @@ const Search = () => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<motion.div className="container">
+			<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container">
 				<div className="inputs">
 					<input type="text" onChange={(e) => setInput(e.target.value)} value={input} placeholder="Search Recipe" />
 				</div>

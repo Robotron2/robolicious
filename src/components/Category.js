@@ -7,7 +7,7 @@ import "../index.css"
 
 const Category = () => {
 	return (
-		<motion.div className="container mt-2 mb-4">
+		<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container mt-2 mb-4">
 			<div className="row cuisine">
 				<div className="feature-box  text-center ">
 					<Link to={"/cuisine/African"}>
