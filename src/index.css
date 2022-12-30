@@ -490,3 +490,12 @@ input {
 		transform: rotate(360deg);
 	}
 }
+
+/* Footer */
+.two {
+	font-size: 1.8rem;
+	margin: 5px;
+}
+.two:hover {
+	transform: scale(1.2);
+}
