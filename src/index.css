@@ -206,18 +206,13 @@ input {
 }
 
 .myPopular {
-    background: linear-gradient(to right, #da7d44, #db6978, #f1caca);
+	background: linear-gradient(to right, #da7d44, #db6978, #f1caca);
 	border-radius: 0.5em;
-    
-	/* box-shadow: 7px 7px 10px #f3cfd1, -7px -7px 10px rgb(247, 223, 223); */
+	color: var(--surface-color) !important;
 }
-
-/* CodePen Cards */
-
-/* body {
-	font-family: "Noto Sans JP", sans-serif;
-	background-color: #fef8f8;
-} */
+.myPopular a {
+	color: var(--surface-color) !important;
+}
 
 .ulCards {
 	display: grid;

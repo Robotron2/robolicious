@@ -11,7 +11,7 @@ const CardComponent = (props) => {
 					<Card.Img variant="top" src={imgSrc} />
 				</div>
 				<Card.Body className="text-center ">
-					<Card.Title className="display-6 text-danger">{title}</Card.Title>
+					<Card.Title className="display-6 ">{title}</Card.Title>
 				</Card.Body>
 			</Card>
 		</div>
