@@ -38,7 +38,8 @@ h4 {
 }
 
 h3 {
-	font-size: 1.5rem;
+	font-size: 1.58rem;
+	font-weight: 600;
 	color: rgb(56, 56, 56);
 	line-height: 2.5rem;
 	margin: 2rem 0rem;
@@ -191,9 +192,8 @@ input {
 	height: 33vh !important;
 	padding: 2.5vh !important;
 	background: inherit;
-	border: none !important;
-	color: #fff;
-	border-radius: 1em;
+	border-radius: 0.5em;
+	font-size: 1rem;
 }
 
 .myCard img {
@@ -206,8 +206,9 @@ input {
 }
 
 .myPopular {
-	background: linear-gradient(to right, #da7d44, #db6978, #f1caca);
-	border-radius: 1em;
+	background: #eaf6f6;
+	border-radius: 0.5em;
+	box-shadow: 7px 7px 10px #f3cfd1, -7px -7px 10px rgb(247, 223, 223);
 }
 
 /* CodePen Cards */
