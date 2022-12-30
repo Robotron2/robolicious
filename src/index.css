@@ -206,8 +206,9 @@ input {
 }
 
 .myPopular {
-	background: linear-gradient( #f27121, #e94057);
+    background: linear-gradient(to right, #da7d44, #db6978, #f1caca);
 	border-radius: 0.5em;
+    
 	/* box-shadow: 7px 7px 10px #f3cfd1, -7px -7px 10px rgb(247, 223, 223); */
 }
 
