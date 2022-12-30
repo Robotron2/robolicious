@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom"
 import Cuisine from "./Cuisine"
 import SearchedPage from "./Searched"
 import Recipe from "./Recipe"
-import MoreComponent from "./More"
+
 import { AnimatePresence } from "framer-motion"
 import Contact from "./Contact"
 
@@ -17,7 +17,7 @@ const Pages = () => {
 				<Route path="/cuisine/:type" element={<Cuisine />} />
 				<Route path="/searched/:searchInput" element={<SearchedPage />} />
 				<Route path="/recipe/:recipeId" element={<Recipe />} />
-				<Route path="/more" element={<MoreComponent />} />
+
 				<Route path="/contact" element={<Contact />} />
 			</Routes>
 		</AnimatePresence>

@@ -1,16 +1,33 @@
-import Header from "../components/Header"
+import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 const Contact = () => {
 	return (
 		<div>
-			<Header />
+			<header>
+				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container">
+					<nav className="navbar navbar-expand-lg ">
+						<Link className="navbar-brand" to={"/"}>
+							<h1>
+								roboliciousss
+								<span>.</span>
+							</h1>
+						</Link>
+						<span className="navbar-text ml-auto btn">
+							<Link to={"/"}>
+								<button className="btn btn-lg contact-btn rounded-pill">Home</button>
+							</Link>
+						</span>
+					</nav>
+				</motion.div>
+			</header>
+
 			<section id="contact" class="contact">
 				<div class="container" data-aos="fade-up">
 					<div class="section-header m-3 text-center">
-						<h3>Contact</h3>
-						<p>
+						<h3>
 							Need my service? <span>Contact Me</span>
-						</p>
+						</h3>
 					</div>
 
 					<form action="https://formspree.io/f/mvonpjlv" method="POST" class="emailForm p-3 p-md-4">
@@ -27,7 +44,7 @@ const Contact = () => {
 						</div>
 
 						<div class="text-center">
-							<button class="btn btn-outline-danger rounded-pill btn-lg">Send Message</button>
+							<button class="btn btn-outline-danger rounded-pill btn-md">Send Message</button>
 						</div>
 					</form>
 				</div>
