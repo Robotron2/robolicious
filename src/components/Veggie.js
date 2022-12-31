@@ -15,26 +15,41 @@ SwiperCore.use([Autoplay])
 
 const Veggie = () => {
 	const [veggie, setVeggie] = useState([])
-	const [apiLimit, setApiLimit] = useState(true)
+	const [apiLimit, setApiLimit] = useState(false)
+
+	// console.log(found === "undefined")
 
 	const getVeggie = async () => {
 		const check = localStorage.getItem("veggies")
 
-		if (check) {
-			setVeggie(JSON.parse(check))
-		} else {
+		if (check === "undefined") {
+			localStorage.removeItem("veggies")
 			await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`)
-				.then((res) => {
-					console.log(res)
+				.then((response) => {
+					//check and return response
 					// eslint-disable-next-line eqeqeq
-					if (res.status == 402) {
-						console.log("API key limit reached. Try again tomorrow")
-						setApiLimit(false)
+					if (response == 402) {
+						setApiLimit(true)
 					}
-					return res.json()
+					return response.json()
 				})
-				.then((data) => {
-					const urlData = data
+				.then((urlData) => {
+					localStorage.setItem("veggies", JSON.stringify(urlData.recipes))
+					setVeggie(urlData.recipes)
+				})
+		} else if (check !== "undefined") {
+			setVeggie(JSON.parse(check))
+		} else if (check === null) {
+			await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`)
+				.then((response) => {
+					//check and return response
+					// eslint-disable-next-line eqeqeq
+					if (response == 402) {
+						setApiLimit(true)
+					}
+					return response.json()
+				})
+				.then((urlData) => {
 					localStorage.setItem("veggies", JSON.stringify(urlData.recipes))
 					setVeggie(urlData.recipes)
 				})
@@ -44,6 +59,16 @@ const Veggie = () => {
 	useEffect(() => {
 		getVeggie()
 	}, [])
+
+	// const [isDefined, setIsDefined] = useState(true)
+
+	// const checkLocal = async () => {
+	// 	const found = localStorage.getItem("veggie")
+	// 	if (found === null) {
+	// 		setIsDefined(false)
+	// 	}
+	// }
+	// checkLocal()
 
 	return (
 		<div>

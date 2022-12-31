@@ -26,7 +26,14 @@ const Popular = () => {
 			const urlData = await url.json()
 			localStorage.setItem("popular", JSON.stringify(urlData.recipes))
 			setPopular(urlData.recipes)
-			console.log(urlData)
+				.then((res) => {
+					return res.json()
+				})
+				.then((data) => {
+					const urlData = data
+					localStorage.setItem("popular", JSON.stringify(urlData.recipes))
+					setPopular(urlData.recipes)
+				})
 		}
 	}
 
