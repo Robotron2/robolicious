@@ -10,14 +10,26 @@ import Loading from "../components/Loading"
 const Recipe = () => {
 	const [details, setDetails] = useState({})
 	const [activeTab, setActiveTab] = useState("instructions")
+	const [apiLimit, setApiLimit] = useState(true)
 	const [isLoading, setIsLoading] = useState(true)
 	const params = useParams()
 
-	const fetchDetails = async () => {
-		const data = await fetch(`https://api.spoonacular.com/recipes/${params.recipeId}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
-		const detailData = await data.json()
-		setDetails(detailData)
-		setIsLoading(false)
+	const fetchDetails = () => {
+		fetch(`https://api.spoonacular.com/recipes/${params.recipeId}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
+			.then((res) => {
+				console.log(res)
+				// eslint-disable-next-line eqeqeq
+				if (res.status == 402) {
+					console.log("API key limit reached. Try again tomorrow")
+					setApiLimit(false)
+				}
+				return res.json()
+			})
+			.then((data) => {
+				const detailData = data
+				setDetails(detailData)
+				setIsLoading(false)
+			})
 	}
 
 	useEffect(() => {
@@ -29,9 +41,18 @@ const Recipe = () => {
 			<Header />
 			<Search />
 			<Category />
-			{isLoading && <Loading />}
 
-			{!isLoading && (
+			{!apiLimit && (
+				<div>
+					<center>
+						<h3>API key limit reached. Try again tomorrow</h3>
+					</center>
+				</div>
+			)}
+
+			{isLoading && apiLimit && <Loading />}
+
+			{!isLoading && apiLimit && (
 				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container mt-5 ">
 					<div className="recipe-container">
 						<div className="container">

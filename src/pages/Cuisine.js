@@ -10,13 +10,28 @@ import Loading from "../components/Loading"
 const Cuisine = () => {
 	const [cuisine, setCuisine] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
+	const [apiLimit, setApiLimit] = useState(true)
 	let params = useParams()
 
 	const getCuisine = async (name) => {
 		const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
-		const recipes = await data.json()
-		setCuisine(recipes.results)
-		setIsLoading(false)
+		const recipes = await data
+			.json()
+
+			.then((res) => {
+				console.log(res)
+				// eslint-disable-next-line eqeqeq
+				if (res.status == 402) {
+					console.log("API key limit reached. Try again tomorrow")
+					setApiLimit(false)
+				}
+				return res.json()
+			})
+			.then((data) => {
+				const recipes = data
+				setCuisine(recipes.results)
+				setIsLoading(false)
+			})
 	}
 
 	useEffect(() => {
@@ -24,25 +39,13 @@ const Cuisine = () => {
 		// console.log(params.type)
 	}, [params.type])
 
-	// return (
-	// 	<div className="grid-class">
-	// 		{cuisine.map((item) => {
-	// 			return (
-	// 				<Card key={item.id}>
-	// 					<img src={item.image} alt={item.title} />
-	// 					<h4>{item.title}</h4>
-	// 				</Card>
-	// 			)
-	// 		})}
-	// 	</div>
-	// )
 	return (
 		<div>
 			<Header />
 			<Search />
 			<Category />
-			{isLoading && <Loading />}
 
+			{isLoading && <Loading />}
 			{!isLoading && (
 				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container-fluid">
 					<ul className="ulCards">
