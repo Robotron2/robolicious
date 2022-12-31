@@ -14,7 +14,7 @@ const Cuisine = () => {
 	let params = useParams()
 
 	const getCuisine = async (name) => {
-		fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
+		await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
 			.then((res) => {
 				console.log(res)
 				// eslint-disable-next-line eqeqeq
