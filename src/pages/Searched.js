@@ -9,20 +9,45 @@ import Loading from "../components/Loading"
 const SearchedPage = () => {
 	const [searchedRecipes, setSearchedRecipes] = useState([])
 	const [checkRecipes, setCheckRecipes] = useState()
+	const [apiLimit, setApiLimit] = useState(true)
 	const [isLoading, setIsLoading] = useState(true)
 	let params = useParams()
 
-	const getSearchData = async (name) => {
-		const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`)
-		const recipes = await data.json()
-
-		if (recipes.results.length === 0) {
-			setCheckRecipes(0)
-		} else {
-			setSearchedRecipes(recipes.results)
-			setIsLoading(false)
-		}
+	const getSearchData = (name) => {
+		fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`)
+			// .then(async (result) => {
+			// const recipes = await result.json()
+			// if (recipes.results.length === 0) {
+			// 	setCheckRecipes(0)
+			// } else {
+			// 	setSearchedRecipes(recipes.results)
+			// 	setIsLoading(false)
+			// }
+			// })
+			// .catch((err) => {
+			// 	console.log(err)
+			// })
+			.then((res) => {
+				console.log(res)
+				// eslint-disable-next-line eqeqeq
+				if (res.status == 402) {
+					console.log("API key limit reached. Try again tomorrow")
+					setApiLimit(false)
+				}
+				return res.json()
+			})
+			.then((data) => {
+				const recipes = data
+				console.log(recipes)
+				if (recipes.results.length === 0) {
+					setCheckRecipes(0)
+				} else {
+					setSearchedRecipes(recipes.results)
+					setIsLoading(false)
+				}
+			})
 	}
+	// getSearchData("African")
 
 	useEffect(() => {
 		getSearchData(params.searchInput)
@@ -34,6 +59,14 @@ const SearchedPage = () => {
 			<Search />
 			<Category />
 
+			{!apiLimit && (
+				<div>
+					<center>
+						<h3>API key limit reached. Try again tomorrow</h3>
+					</center>
+				</div>
+			)}
+
 			{isLoading && checkRecipes === 0 && (
 				<div>
 					<center>
@@ -41,8 +74,8 @@ const SearchedPage = () => {
 					</center>
 				</div>
 			)}
-			{isLoading && checkRecipes !== 0 && <Loading />}
-			{!isLoading && checkRecipes !== 0 && (
+			{isLoading && checkRecipes !== 0 && apiLimit && <Loading />}
+			{!isLoading && checkRecipes !== 0 && apiLimit && (
 				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container-fluid">
 					<ul className="ulCards">
 						{searchedRecipes.map((item) => {
