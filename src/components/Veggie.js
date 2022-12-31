@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -15,44 +16,28 @@ SwiperCore.use([Autoplay])
 
 const Veggie = () => {
 	const [veggie, setVeggie] = useState([])
-	const [apiLimit, setApiLimit] = useState(false)
+	// const [apiLimit, setApiLimit] = useState(false)
 
 	// console.log(found === "undefined")
 
 	const getVeggie = async () => {
 		const check = localStorage.getItem("veggies")
 
-		if (check === "undefined") {
-			localStorage.removeItem("veggies")
-			await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`)
-				.then((response) => {
-					//check and return response
-					// eslint-disable-next-line eqeqeq
-					if (response == 402) {
-						setApiLimit(true)
-					}
-					return response.json()
-				})
-				.then((urlData) => {
-					localStorage.setItem("veggies", JSON.stringify(urlData.recipes))
-					setVeggie(urlData.recipes)
-				})
-		} else if (check !== "undefined") {
+		if (check) {
 			setVeggie(JSON.parse(check))
-		} else if (check === null) {
-			await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`)
-				.then((response) => {
-					//check and return response
-					// eslint-disable-next-line eqeqeq
-					if (response == 402) {
-						setApiLimit(true)
-					}
-					return response.json()
-				})
-				.then((urlData) => {
-					localStorage.setItem("veggies", JSON.stringify(urlData.recipes))
-					setVeggie(urlData.recipes)
-				})
+		} else {
+			const url = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`)
+			const urlData = await url.json()
+			localStorage.setItem("veggies", JSON.stringify(urlData.recipes))
+			setVeggie(urlData.recipes)
+			// .then((res) => {
+			// 	return res.json()
+			// })
+			// .then((data) => {
+			// 	const urlData = data
+			// 	localStorage.setItem("veggies", JSON.stringify(urlData.recipes))
+			// 	setVeggie(urlData.recipes)
+			// })
 		}
 	}
 
@@ -72,61 +57,51 @@ const Veggie = () => {
 
 	return (
 		<div>
-			{!apiLimit && (
-				<div>
-					<center>
-						<h3>API key limit reached. Try again tomorrow</h3>
-					</center>
+			<div className="mb-5">
+				<h3 className="text-center mb-2">Vegetarian Picks</h3>
+				<div className="container py-4 px-4 justify-content-center myPopular">
+					<Swiper
+						autoplay={{
+							delay: 2500,
+							disableOnInteraction: false
+						}}
+						freeMode={true}
+						grabCursor={true}
+						modules={[FreeMode, Autoplay]}
+						className="mySwiper"
+						slidesPerView={5}
+						spaceBetween={10}
+						breakpoints={{
+							960: {
+								slidesPerView: 3,
+								spaceBetween: 8
+							},
+							720: {
+								slidesPerView: 2,
+								spaceBetween: 6
+							},
+							540: {
+								slidesPerView: 2,
+								spaceBetween: 4
+							},
+							220: {
+								slidesPerView: 1,
+								spaceBetween: 2
+							}
+						}}
+					>
+						{veggie.map((recipe) => {
+							return (
+								<SwiperSlide key={recipe.id}>
+									<Link to={`recipe/${recipe.id}`}>
+										<CardComponent image={recipe.image} title={recipe.title} />
+									</Link>
+								</SwiperSlide>
+							)
+						})}
+					</Swiper>
 				</div>
-			)}
-
-			{apiLimit && (
-				<div className="mb-5">
-					<h3 className="text-center mb-2">Vegetarian Picks</h3>
-					<div className="container py-4 px-4 justify-content-center myPopular">
-						<Swiper
-							autoplay={{
-								delay: 2500,
-								disableOnInteraction: false
-							}}
-							freeMode={true}
-							grabCursor={true}
-							modules={[FreeMode, Autoplay]}
-							className="mySwiper"
-							slidesPerView={5}
-							spaceBetween={10}
-							breakpoints={{
-								960: {
-									slidesPerView: 3,
-									spaceBetween: 8
-								},
-								720: {
-									slidesPerView: 2,
-									spaceBetween: 6
-								},
-								540: {
-									slidesPerView: 2,
-									spaceBetween: 4
-								},
-								220: {
-									slidesPerView: 1,
-									spaceBetween: 2
-								}
-							}}
-						>
-							{veggie.map((recipe) => {
-								return (
-									<SwiperSlide key={recipe.id}>
-										<Link to={`recipe/${recipe.id}`}>
-											<CardComponent image={recipe.image} title={recipe.title} />
-										</Link>
-									</SwiperSlide>
-								)
-							})}
-						</Swiper>
-					</div>
-				</div>
-			)}
+			</div>
 		</div>
 	)
 }

@@ -15,6 +15,7 @@ SwiperCore.use([Autoplay])
 
 const Popular = () => {
 	const [popular, setPopular] = useState([])
+	// const [apiLimit, setApiLimit] = useState(false)
 
 	const getpopular = async () => {
 		const check = localStorage.getItem("popular")
@@ -26,15 +27,48 @@ const Popular = () => {
 			const urlData = await url.json()
 			localStorage.setItem("popular", JSON.stringify(urlData.recipes))
 			setPopular(urlData.recipes)
-				.then((res) => {
-					return res.json()
-				})
-				.then((data) => {
-					const urlData = data
-					localStorage.setItem("popular", JSON.stringify(urlData.recipes))
-					setPopular(urlData.recipes)
-				})
+			// .then((res) => {
+			// 	return res.json()
+			// })
+			// .then((data) => {
+			// 	const urlData = data
+			// 	localStorage.setItem("popular", JSON.stringify(urlData.recipes))
+			// 	setPopular(urlData.recipes)
+			// })
 		}
+
+		// if (check === "undefined") {
+		// 	localStorage.removeItem("popular")
+		// 	await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12`)
+		// 		.then((response) => {
+		// 			//check and return response
+		// 			// eslint-disable-next-line eqeqeq
+		// 			if (response == 402) {
+		// 				setApiLimit(true)
+		// 			}
+		// 			return response.json()
+		// 		})
+		// 		.then((urlData) => {
+		// 			localStorage.setItem("veggies", JSON.stringify(urlData.recipes))
+		// 			setPopular(urlData.recipes)
+		// 		})
+		// } else if (check !== "undefined") {
+		// 	setPopular(JSON.parse(check))
+		// } else if (check === null) {
+		// 	await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`)
+		// 		.then((response) => {
+		// 			//check and return response
+		// 			// eslint-disable-next-line eqeqeq
+		// 			if (response == 402) {
+		// 				setApiLimit(true)
+		// 			}
+		// 			return response.json()
+		// 		})
+		// 		.then((urlData) => {
+		// 			localStorage.setItem("veggies", JSON.stringify(urlData.recipes))
+		// 			setPopular(urlData.recipes)
+		// 		})
+		// }
 	}
 
 	useEffect(() => {
@@ -43,48 +77,50 @@ const Popular = () => {
 
 	return (
 		<div>
-			<h3 className="text-center mb-2">Popular Picks</h3>
-			<div className="container py-4 px-4 justify-content-center myPopular">
-				<Swiper
-					autoplay={{
-						delay: 2500,
-						disableOnInteraction: false
-					}}
-					freeMode={true}
-					grabCursor={true}
-					modules={[FreeMode, Autoplay]}
-					className="mySwiper"
-					slidesPerView={5}
-					spaceBetween={10}
-					breakpoints={{
-						960: {
-							slidesPerView: 3,
-							spaceBetween: 8
-						},
-						720: {
-							slidesPerView: 2,
-							spaceBetween: 6
-						},
-						540: {
-							slidesPerView: 2,
-							spaceBetween: 4
-						},
-						220: {
-							slidesPerView: 1,
-							spaceBetween: 2
-						}
-					}}
-				>
-					{popular.map((recipe) => {
-						return (
-							<SwiperSlide key={recipe.id}>
-								<Link to={`recipe/${recipe.id}`}>
-									<CardComponent image={recipe.image} title={recipe.title} />
-								</Link>
-							</SwiperSlide>
-						)
-					})}
-				</Swiper>
+			<div>
+				<h3 className="text-center mb-2">Popular Picks</h3>
+				<div className="container py-4 px-4 justify-content-center myPopular">
+					<Swiper
+						autoplay={{
+							delay: 2500,
+							disableOnInteraction: false
+						}}
+						freeMode={true}
+						grabCursor={true}
+						modules={[FreeMode, Autoplay]}
+						className="mySwiper"
+						slidesPerView={5}
+						spaceBetween={10}
+						breakpoints={{
+							960: {
+								slidesPerView: 3,
+								spaceBetween: 8
+							},
+							720: {
+								slidesPerView: 2,
+								spaceBetween: 6
+							},
+							540: {
+								slidesPerView: 2,
+								spaceBetween: 4
+							},
+							220: {
+								slidesPerView: 1,
+								spaceBetween: 2
+							}
+						}}
+					>
+						{popular.map((recipe) => {
+							return (
+								<SwiperSlide key={recipe.id}>
+									<Link to={`recipe/${recipe.id}`}>
+										<CardComponent image={recipe.image} title={recipe.title} />
+									</Link>
+								</SwiperSlide>
+							)
+						})}
+					</Swiper>
+				</div>
 			</div>
 		</div>
 	)
