@@ -23,7 +23,9 @@ const Home = () => {
 		// 	setIsDefined(false)
 		// 	console.log("Falseeeee")
 		// }
-		else {
+		else if (foundVeggies && foundPopular) {
+			setIsDefined(false)
+		} else {
 			await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`)
 				.then((response) => {
 					//check and return response
