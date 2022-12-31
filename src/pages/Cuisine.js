@@ -14,10 +14,7 @@ const Cuisine = () => {
 	let params = useParams()
 
 	const getCuisine = async (name) => {
-		const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
-		const recipes = await data
-			.json()
-
+		fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`)
 			.then((res) => {
 				console.log(res)
 				// eslint-disable-next-line eqeqeq
@@ -45,8 +42,16 @@ const Cuisine = () => {
 			<Search />
 			<Category />
 
-			{isLoading && <Loading />}
-			{!isLoading && (
+			{!apiLimit && (
+				<div>
+					<center>
+						<h3>API key limit reached. Try again tomorrow</h3>
+					</center>
+				</div>
+			)}
+
+			{isLoading && apiLimit && <Loading />}
+			{!isLoading && apiLimit && (
 				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container-fluid">
 					<ul className="ulCards">
 						{cuisine.map((item) => {
