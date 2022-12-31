@@ -12,6 +12,7 @@ import Loading from "../components/Loading"
 
 const Home = () => {
 	const [isDefined, setIsDefined] = useState(true)
+	// const [msg, setMsg] = useState(false)
 
 	const checkLocal = async () => {
 		const foundVeggies = localStorage.getItem("veggies")
@@ -19,11 +20,7 @@ const Home = () => {
 		if (foundVeggies === "undefined" || foundPopular === "undefined") {
 			setIsDefined(true)
 			console.log("Trueeee")
-		} //else {
-		// 	setIsDefined(false)
-		// 	console.log("Falseeeee")
-		// }
-		else if (foundVeggies && foundPopular) {
+		} else if (foundVeggies && foundPopular) {
 			setIsDefined(false)
 		} else {
 			await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`)
@@ -32,6 +29,7 @@ const Home = () => {
 					// eslint-disable-next-line eqeqeq
 					if (response == 402) {
 						setIsDefined(true)
+						// setMsg(true)
 					}
 					return response.json()
 				})
@@ -58,10 +56,23 @@ const Home = () => {
 			<Category />
 
 			{isDefined && (
-				<div>
+				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
 					<Loading />
-				</div>
+					<center>
+						<h3>
+							API limit might have been reached, try again tomorrow if you think it is not a network issue.{" "}
+							<p>
+								<small>Sorry for the inconvenience.</small>
+							</p>
+						</h3>
+					</center>
+				</motion.div>
 			)}
+			{/* {isDefined && msg && (
+				<div>
+					<h3>API limit reached, try again tomorrow</h3>
+				</div>
+			)} */}
 
 			{!isDefined && (
 				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>

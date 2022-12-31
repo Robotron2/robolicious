@@ -43,11 +43,17 @@ const Cuisine = () => {
 			<Category />
 
 			{!apiLimit && (
-				<div>
+				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+					<Loading />
 					<center>
-						<h3>API key limit reached. Try again tomorrow</h3>
+						<h3>
+							API limit might have been reached, try again tomorrow if you think it is not a network issue.{" "}
+							<p>
+								<small>Sorry for the inconvenience.</small>
+							</p>
+						</h3>
 					</center>
-				</div>
+				</motion.div>
 			)}
 
 			{isLoading && apiLimit && <Loading />}
