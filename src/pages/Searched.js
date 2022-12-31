@@ -8,14 +8,20 @@ import Loading from "../components/Loading"
 
 const SearchedPage = () => {
 	const [searchedRecipes, setSearchedRecipes] = useState([])
+	const [checkRecipes, setCheckRecipes] = useState()
 	const [isLoading, setIsLoading] = useState(true)
 	let params = useParams()
 
 	const getSearchData = async (name) => {
 		const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`)
 		const recipes = await data.json()
-		setSearchedRecipes(recipes.results)
-		setIsLoading(false)
+
+		if (recipes.results.length === 0) {
+			setCheckRecipes(0)
+		} else {
+			setSearchedRecipes(recipes.results)
+			setIsLoading(false)
+		}
 	}
 
 	useEffect(() => {
@@ -27,8 +33,16 @@ const SearchedPage = () => {
 			<Header />
 			<Search />
 			<Category />
-			{isLoading && <Loading />}
-			{!isLoading && (
+
+			{isLoading && checkRecipes === 0 && (
+				<div>
+					<center>
+						<h3>Hello what you are looking for is not in our archives. Check your spelling or type in English.</h3>
+					</center>
+				</div>
+			)}
+			{isLoading && checkRecipes !== 0 && <Loading />}
+			{!isLoading && checkRecipes !== 0 && (
 				<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="container-fluid">
 					<ul className="ulCards">
 						{searchedRecipes.map((item) => {
